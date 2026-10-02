@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roanne.info – Le site indépendant sur Roanne et son pays</title>
+<meta name="description" content="Roanne.info : découvrir Roanne, ses bords de Loire, sa table, ses sorties et son histoire. Un site indépendant, en construction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EAF0EE; --ink:#10282E; --muted:#4B6168; --river:#1F5C66; --sand:#B8893A; --panel:#DCE6E3; --line:#B9CAC6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#0F2227; --ink:#E6EEEC; --muted:#9DB3B3; --river:#5FB0BA; --sand:#D9AE5F; --panel:#16323A; --line:#2B4950}
+}
+:root[data-theme="dark"]{--bg:#0F2227; --ink:#E6EEEC; --muted:#9DB3B3; --river:#5FB0BA; --sand:#D9AE5F; --panel:#16323A; --line:#2B4950}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.65 "Instrument Sans",system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
+a{color:var(--river);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--sand);outline-offset:3px}
+h1,h2,h3{font-family:Newsreader,Georgia,serif;font-weight:400;line-height:1.1;margin:0}
+header.top{padding:1.5rem 0;display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.logo{font-family:Newsreader,Georgia,serif;font-size:1.4rem;font-weight:600;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--sand)}
+.hero{padding:4rem 0 0}
+.hero h1{font-size:clamp(3rem,10vw,7.5rem);letter-spacing:-.02em;max-width:12ch}
+.hero h1 em{font-style:italic;color:var(--river)}
+.hero p{max-width:34rem;font-size:1.2rem;color:var(--muted);margin:1.5rem 0 0}
+.river{display:block;width:100%;height:auto;margin-top:2.5rem}
+.river path{fill:none;stroke:var(--river);stroke-width:2;stroke-linecap:round;stroke-dasharray:14 10;animation:flow 40s linear infinite}
+.river path:nth-child(2){stroke:var(--sand);stroke-width:1.5;animation-duration:60s;animation-direction:reverse}
+.river path:nth-child(3){opacity:.5;animation-duration:80s}
+@keyframes flow{to{stroke-dashoffset:-480}}
+@media (prefers-reduced-motion:reduce){.river path{animation:none}}
+section{padding:4.5rem 0 0}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.5rem}
+.intro{display:grid;gap:2rem;grid-template-columns:1fr}
+.intro p{margin:0 0 1rem;max-width:40rem}
+.themes{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));margin:0;padding:0;list-style:none}
+.themes li{background:var(--panel);padding:1.5rem;border-left:4px solid var(--river)}
+.themes li:nth-child(even){border-left-color:var(--sand)}
+.themes h3{font-size:1.5rem;margin-bottom:.5rem}
+.themes p{margin:0;color:var(--muted)}
+.soon{background:var(--ink);color:var(--bg);margin-top:4.5rem;padding:3.5rem 0}
+.soon h2{margin-bottom:1rem}
+.soon p{max-width:36rem;margin:0 0 1.5rem;opacity:.85}
+.btn{display:inline-block;background:var(--sand);color:#10282E;font-weight:600;padding:.85rem 1.4rem;text-decoration:none;border-radius:2px}
+.btn:hover{filter:brightness(1.08)}
+.soon .btn:focus-visible{outline-color:var(--bg)}
+footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.95rem}
+footer p{margin:0 0 .5rem;max-width:44rem}
+@media (min-width:52rem){.intro{grid-template-columns:1fr 1fr;gap:4rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="/">roanne<span>.info</span></a>
+    <a href="#bientot">Suivre le projet</a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Roanne, au fil de la <em>Loire</em></h1>
+      <p>Un site indépendant pour découvrir la ville, ses tables, ses sorties et son histoire. Il s'écrit en ce moment même.</p>
+      <svg class="river" viewBox="0 0 1000 90" preserveAspectRatio="none" role="img" aria-label="Illustration de la Loire sous forme de lignes ondulées">
+        <path d="M0 30 C 120 5, 220 55, 340 30 S 560 5, 680 30 S 880 55, 1000 30"/>
+        <path d="M0 52 C 130 28, 240 78, 360 52 S 580 28, 700 52 S 900 78, 1000 52"/>
+        <path d="M0 74 C 110 52, 230 92, 350 74 S 570 52, 690 74 S 890 92, 1000 74"/>
+      </svg>
+    </div>
+
+    <section class="intro" aria-labelledby="pourquoi">
+      <h2 id="pourquoi">Pourquoi ce site</h2>
+      <div>
+        <p>Roanne mérite mieux qu'une fiche dans un annuaire. Entre la Loire, le canal, la Côte roannaise et les monts de la Madeleine, il y a beaucoup à raconter, et à faire.</p>
+        <p>Roanne.info veut rassembler au même endroit les adresses fiables, les idées de sortie et les histoires de la ville, écrites par quelqu'un qui s'y intéresse.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="rubriques">
+      <h2 id="rubriques">Ce que vous y trouverez</h2>
+      <ul class="themes">
+        <li><h3>Découvrir</h3><p>Les lieux à voir, les balades au bord de l'eau, les musées et les points de vue.</p></li>
+        <li><h3>Manger et boire</h3><p>Des tables, des marchés et des producteurs, des plus célèbres aux plus discrètes.</p></li>
+        <li><h3>Sortir</h3><p>Un agenda des concerts, expositions, marchés et rendez-vous de la région.</p></li>
+        <li><h3>Mémoire de la ville</h3><p>L'histoire, le patrimoine et les anecdotes qui font Roanne.</p></li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<div class="soon" id="bientot">
+  <div class="wrap">
+    <h2>Ouverture prochaine</h2>
+    <p>Les premières rubriques arrivent bientôt. Pour proposer une adresse, une photo ou une histoire, vous pouvez contribuer.</p>
+    <a class="btn" href="https://github.com/nazimboudeffa/roanne-info-static">Aller sur GitHub</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>
+    <p>Roanne.info est un site indépendant. Il n'est lié ni à la mairie de Roanne ni à l'office de tourisme.</p>
+  </footer>
+</div>
+</body>
+</html>
