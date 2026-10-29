@@ -60,10 +60,15 @@ header.top{padding:1.5rem 0;display:flex;justify-content:space-between;align-ite
 .logo{font-family:Newsreader,Georgia,serif;font-size:1.4rem;font-weight:600;text-decoration:none;color:var(--ink)}
 .logo span{color:var(--sand)}
 .hero{padding:4rem 0 0}
-.hero h1{font-size:clamp(3rem,10vw,7.5rem);letter-spacing:-.02em;max-width:12ch}
+.hero-copy{grid-area:copy}
+.hero h1{font-size:clamp(3rem,8vw,6.5rem);letter-spacing:-.02em;max-width:12ch}
 .hero h1 em{font-style:italic;color:var(--river)}
 .hero p{max-width:34rem;font-size:1.2rem;color:var(--muted);margin:1.5rem 0 0}
+.hero-figure{grid-area:photo;margin:2.5rem 0 0}
+.hero-figure img{display:block;width:100%;height:auto;border-radius:48% 48% 3px 3px;box-shadow:0 1.25rem 3rem rgba(16,40,46,.18)}
+.hero-figure figcaption{margin-top:.75rem;color:var(--muted);font-size:.875rem;text-align:right}
 .river{display:block;width:100%;height:auto;margin-top:2.5rem}
+.hero .river{grid-area:river}
 .river path{fill:none;stroke:var(--river);stroke-width:2;stroke-linecap:round;stroke-dasharray:14 10;animation:flow 40s linear infinite}
 .river path:nth-child(2){stroke:var(--sand);stroke-width:1.5;animation-duration:60s;animation-direction:reverse}
 .river path:nth-child(3){opacity:.5;animation-duration:80s}
@@ -81,12 +86,18 @@ h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.5rem}
 .soon{background:var(--ink);color:var(--bg);margin-top:4.5rem;padding:3.5rem 0}
 .soon h2{margin-bottom:1rem}
 .soon p{max-width:36rem;margin:0 0 1.5rem;opacity:.85}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem;margin:2rem 0}
+.project-card{border:1px solid currentColor;padding:1.5rem}
+.project-card h3{font-size:1.5rem;margin-bottom:.75rem}
+.project-card p{margin-bottom:1.25rem}
+.project-link{display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--river);font-weight:600;text-decoration:none;border-bottom:1px solid var(--sand);padding-bottom:.15rem}
+.project-link:hover{border-bottom-width:2px}
 .btn{display:inline-block;background:var(--sand);color:#10282E;font-weight:600;padding:.85rem 1.4rem;text-decoration:none;border-radius:2px}
 .btn:hover{filter:brightness(1.08)}
 .soon .btn:focus-visible{outline-color:var(--bg)}
 footer{padding:2.5rem 0 3rem;color:var(--muted);font-size:.95rem}
 footer p{margin:0 0 .5rem;max-width:44rem}
-@media (min-width:52rem){.intro{grid-template-columns:1fr 1fr;gap:4rem}}
+@media (min-width:52rem){.hero{display:grid;grid-template-columns:1.1fr .9fr;grid-template-areas:"copy photo" "river river";align-items:center;column-gap:3rem}.hero-figure{margin:0}.intro{grid-template-columns:1fr 1fr;gap:4rem}}
 </style>
 <script defer data-domain="roanne.info" src="https://plausible.codewithadu.de/js/script.js"></script>
 </head>
@@ -98,8 +109,14 @@ footer p{margin:0 0 .5rem;max-width:44rem}
 
   <main>
     <div class="hero">
-      <h1>Roanne, au fil de la <em>Loire</em></h1>
-      <p>Un site indépendant pour découvrir la ville, ses tables, ses sorties et son histoire.</p>
+      <div class="hero-copy">
+        <h1>Roanne, au fil de la <em>Loire</em></h1>
+        <p>Un site indépendant pour découvrir la ville, ses tables, ses sorties et son histoire.</p>
+      </div>
+      <figure class="hero-figure">
+        <img src="images/Place_Saint-Etienne_Roanne_(2008).jpg" alt="La place Saint-Étienne et son église à Roanne" fetchpriority="high">
+        <figcaption>Place Saint-Étienne, Roanne</figcaption>
+      </figure>
       <svg class="river" viewBox="0 0 1000 90" preserveAspectRatio="none" role="img" aria-label="Illustration de la Loire sous forme de lignes ondulées">
         <path d="M0 30 C 120 5, 220 55, 340 30 S 560 5, 680 30 S 880 55, 1000 30"/>
         <path d="M0 52 C 130 28, 240 78, 360 52 S 580 28, 700 52 S 900 78, 1000 52"/>
@@ -116,7 +133,7 @@ footer p{margin:0 0 .5rem;max-width:44rem}
     </section>
 
     <section aria-labelledby="rubriques">
-      <h2 id="rubriques">Ce que vous y trouverez</h2>
+      <h2 id="rubriques">Les articles, histoires et rubriques</h2>
       <ul class="themes">
         <li><h3>Découvrir</h3><p>Les lieux à voir, les balades au bord de l'eau, les musées et les points de vue.</p></li>
         <li><h3>Manger et boire</h3><p>Des tables, des marchés et des producteurs, des plus célèbres aux plus discrètes.</p></li>
@@ -124,20 +141,35 @@ footer p{margin:0 0 .5rem;max-width:44rem}
         <li><h3>Mémoire de la ville</h3><p>L'histoire, le patrimoine et les anecdotes qui font Roanne.</p></li>
       </ul>
     </section>
+
+    <section aria-labelledby="sites">
+      <h2 id="sites">Les sites qu'on développe</h2>
+      <div class="projects">
+        <article class="project-card">
+          <h3>La Ruche d'Ali Baba</h3>
+          <p>Une présence en ligne dédiée à La Ruche d'Ali Baba.</p>
+          <a class="project-link" href="https://la-ruche-d-ali-baba.roanne.info">la-ruche-d-ali-baba.roanne.info</a>
+        </article>
+        <article class="project-card">
+          <h3>Mozaik</h3>
+          <p>Un site imaginé et réalisé autour du projet Mozaik.</p>
+          <a class="project-link" href="https://mozaik.roanne.info">mozaik.roanne.info</a>
+        </article>
+        <article class="project-card">
+          <h3>Kofi 418</h3>
+          <p>Un site conçu pour faire découvrir l'univers de Kofi 418.</p>
+          <a class="project-link" href="https://kofi-418.roanne.info">kofi-418.roanne.info</a>
+        </article>
+      </div>
+    </section>
   </main>
 </div>
 
 <div class="soon" id="bientot">
   <div class="wrap">
-    <h2>Ce que l'on propose</h2>
-    <p>Les premières rubriques arrivent bientôt.</p>
-    <p>Actuellement nous avons créé les sites suivants :</p>
-    <ul>
-      <li><a href="https://mozaik.roanne.info">mozaik.roanne.info</a></li>
-      <li><a href="https://la-ruche-d-ali-baba.roanne.info">la-ruche-d-ali-baba.roanne.info</a></li>
-      <li><a href="https://kofi-418.roanne.info">kofi-418.roanne.info</a></li>
-    </ul>
-    <p>Si vous souhaitez un sous domaine comme : mon-site.roanne.info y a pas de tarifs, donnez ce que vous voulez.</p>
+    <h2>Ce que l'on vous propose</h2>
+    <p>Les premières rubriques qui arrivent bientôt, on compte sur vos contributions.</p>
+    <p>Si vous souhaitez un sous domaine comme comme les sites qu'on développe dans la forme mon-site.roanne.info y a pas de tarifs, donnez ce que vous voulez.</p>
     <p>Voici mon tipeee <a href="https://fr.tipeee.com/nazimboudeffa" target="_blank" rel="noopener noreferrer">https://fr.tipeee.com/nazimboudeffa</a></p>
     <p>Si vous souhaitez également proposer une adresse, une photo ou une histoire/article. Écrivez-nous !</p>
     <p><a class="btn" href="mailto:roanne.info@hydromail.ovh">roanne.info@hydromail.ovh</a></p>
