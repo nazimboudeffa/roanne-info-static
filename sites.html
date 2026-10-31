@@ -41,9 +41,10 @@ header.top{padding:1.5rem 0;display:flex;justify-content:space-between;align-ite
 .page-head h1 em{font-style:italic;color:var(--river)}
 .page-head p{max-width:34rem;font-size:1.2rem;color:var(--muted);margin:1.25rem 0 0}
 section{padding:3rem 0 0}
-.projects{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:1rem;margin:0}
-@media (max-width:52rem){.projects{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:34rem){.projects{grid-template-columns:1fr}}
+.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:1rem;margin:0}
+@media (max-width:52rem){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:34rem){.projects{grid-template-columns:minmax(0,1fr)}}
+.project-card{min-width:0}
 .project-card{display:flex;flex-direction:column;border:1px solid currentColor;padding:1.5rem}
 .project-card h3{font-size:1.5rem;margin-bottom:.75rem}
 .project-card p{flex:1;margin:0 0 1.25rem}
