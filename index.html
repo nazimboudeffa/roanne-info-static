@@ -86,6 +86,15 @@ h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.5rem}
 .themes li:nth-child(even){border-left-color:var(--sand)}
 .themes h3{font-size:1.5rem;margin-bottom:.5rem}
 .themes p{margin:0;color:var(--muted)}
+.themes .card{display:flex;flex-direction:column;gap:.5rem;transition:transform .15s,box-shadow .15s}
+.themes .card p{flex:1}
+.themes .card:has(.card-link):hover{transform:translateY(-3px);box-shadow:0 .75rem 1.5rem rgba(16,40,46,.15)}
+.card-link{margin-top:1rem;font-weight:600;text-decoration:none;border-bottom:1px solid var(--sand);align-self:flex-start;padding-bottom:.15rem}
+.card-link:hover{border-bottom-width:2px}
+.all-link{margin:1.5rem 0 0}
+.all-link .card-link{display:inline-block;margin-top:0}
+.card-soon{margin-top:1rem;font-size:.875rem;color:var(--muted);font-style:italic}
+@media (prefers-reduced-motion:reduce){.themes .card{transition:none}}
 .soon{background:var(--ink);color:var(--bg);margin-top:4.5rem;padding:3.5rem 0}
 .soon h2{margin-bottom:1rem}
 .soon p{max-width:36rem;margin:0 0 1.5rem;opacity:.85}
@@ -136,13 +145,25 @@ footer p{margin:0 0 .5rem;max-width:44rem}
     </section>
 
     <section aria-labelledby="rubriques">
-      <h2 id="rubriques">Les articles, histoires et rubriques</h2>
+      <h2 id="rubriques">Les articles</h2>
       <ul class="themes">
-        <li><h3>Découvrir</h3><p>Les lieux à voir, les balades au bord de l'eau, les musées et les points de vue.</p></li>
-        <li><h3>Manger et boire</h3><p>Des tables, des marchés et des producteurs, des plus célèbres aux plus discrètes.</p></li>
-        <li><h3>Sortir</h3><p>Un agenda des concerts, expositions, marchés et rendez-vous de la région.</p></li>
-        <li><h3>Mémoire de la ville</h3><p>L'histoire, le patrimoine et les anecdotes qui font Roanne.</p></li>
+        <li class="card">
+          <h3>Roanne vue par TF1</h3>
+          <p>Le reportage de TF1 consacré à Roanne, en vidéo.</p>
+          <a class="card-link" href="https://www.facebook.com/reel/2430306087491723" target="_blank" rel="noopener noreferrer">Voir la vidéo <span aria-hidden="true">→</span></a>
+        </li>
+        <li class="card">
+          <h3>Titre de l'article 2</h3>
+          <p>Description courte du deuxième article.</p>
+          <a class="card-link" href="#">Lire l'article <span aria-hidden="true">→</span></a>
+        </li>
+        <li class="card">
+          <h3>Titre de l'article 3</h3>
+          <p>Description courte du troisième article.</p>
+          <a class="card-link" href="#">Lire l'article <span aria-hidden="true">→</span></a>
+        </li>
       </ul>
+      <p class="all-link"><a class="card-link" href="articles.html">Voir tous les articles <span aria-hidden="true">→</span></a></p>
     </section>
 
     <section aria-labelledby="sites">
@@ -164,6 +185,7 @@ footer p{margin:0 0 .5rem;max-width:44rem}
           <a class="project-link" href="https://mozaik.roanne.info">mozaik.roanne.info</a>
         </article>
       </div>
+      <p class="all-link"><a class="card-link" href="sites.html">Voir tous les projets <span aria-hidden="true">→</span></a></p>
     </section>
   </main>
 </div>
